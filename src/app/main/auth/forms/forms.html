@@ -1,0 +1,360 @@
+<div id="forms" class="ng-scope" layout="column">
+
+
+    <!-- CONTENT -->
+    <div class="" layout="column">
+        <div class="md-title mt-32">Form Wizard</div>
+        <div class="pb-16">
+            Form wizard is a combination of md-tabs and forms that we have created for you. You can have as many steps
+            as you want.
+        </div>
+        <div layout="row">
+
+            <!-- FORM WIZARD -->
+            <ms-form-wizard flex>
+                <md-tabs md-dynamic-height md-selected="msWizard.selectedIndex" md-center-tabs="true">
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep1.$invalid">1</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep1.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep1" class="md-inline-form" ms-form-wizard-form novalidate>
+                                    <span class="ms-form-wizard-step-text">Confirm your First and Last name</span>
+                                <md-input-container class="md-block">
+                                    <input type="text" name="firstname" ng-model="vm.formWizard.firstname"
+                                               placeholder="Firstname"
+                                               required>
+                                        <div ng-messages="wizardStep1.firstname.$error"
+                                             role="alert">
+                                            <div ng-message="required">
+                                                <span>Firstname field is required.</span>
+                                            </div>
+                                        </div>
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <input type="text" name="lastname" ng-model="vm.formWizard.lastname"
+                                               placeholder="Lastname"
+                                               required>
+                                        <div ng-messages="wizardStep1.lastname.$error"
+                                             role="alert">
+                                            <div ng-message="required">
+                                                <span>Lastname field is required.</span>
+                                            </div>
+                                        </div>  
+                                </md-input-container>
+
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep2.$invalid">2</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep2.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep2" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text"></span>
+                                <md-input-container class="md-block">
+                                    <label>Who are you ?</label>
+                                    <textarea ng-model="vm.formWizard.whoAreYou" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep2.whoAreYou.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>This field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>It can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep3.$invalid">3</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep3" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Select your personal style</span>
+                               <md-input-container class="md-block">
+                                    <label>Address</label>
+                                    <textarea ng-model="vm.formWizard.address" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep2.address.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Address field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Address can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid ">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep4.$invalid">4</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep4" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Add your profile pic</span>
+                               <md-input-container class="md-block">
+                                    <label>Address</label>
+                                    <textarea ng-model="vm.formWizard.address" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep4.address.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Address field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Address can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid || wizardStep4.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep5.$invalid">5</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep5.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep5" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Add a cover pic</span>
+                               <md-input-container class="md-block">
+                                    <label>Address</label>
+                                    <textarea ng-model="vm.formWizard.address" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep5.address.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Address field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Address can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid || wizardStep4.$invalid || wizardStep5.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep6.$invalid">6</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep6.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep6" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Your date of birth</span>
+                               <md-input-container class="md-block">
+                                    <h4>Date of birth</h4>
+                                    <md-datepicker ng-model="wizardStep6.myDate" md-placeholder="Enter date"></md-datepicker>
+                                    <div ng-messages="wizardStep6.myDate.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Date field is required.</span></div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid || wizardStep4.$invalid || wizardStep5.$invalid || wizardStep6.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep7.$invalid">7</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep7.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep7" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Enter your page link</span>
+                               <md-input-container class="md-block">
+                                    <label>Address</label>
+                                    <textarea ng-model="vm.formWizard.address" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep7.address.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Address field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Address can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid || wizardStep4.$invalid || wizardStep5.$invalid || wizardStep6.$invalid || wizardStep7.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep8.$invalid">8</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep8.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep8" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">What is your current location</span>
+                               <div layout="column" layout-gt-xs="row">
+                                    <md-input-container flex>
+                                        <label>City</label>
+                                        <input type="text" name="city" ng-model="vm.formWizard.city">
+                                    </md-input-container>
+
+                                    <md-input-container flex>
+                                        <label>State</label>
+                                        <md-select ng-model="vm.formWizard.state">
+                                            <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                                {{state.abbrev}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex>
+                                        <label>Postal Code</label>
+                                        <input name="postalcode" ng-model="vm.formWizard.postalCode" placeholder="123456"
+                                               required ng-pattern="/^[0-9]{6}$/" md-maxlength="6">
+                                        <div ng-messages="wizardStep8.postalcode.$error"
+                                             role="alert" multiple>
+                                            <div ng-message="required"><span>You must supply a postal code.</span></div>
+                                            <div ng-message="pattern">
+                                                <span>That doesn't look like a valid postal code.</span></div>
+                                            <div ng-message="md-maxlength">
+                                                <span>Postal code can't be longer than 5 characters.</span>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+
+                                <md-input-container class="md-block">
+                                    <label>Address</label>
+                                    <textarea ng-model="vm.formWizard.address" md-maxlength="150" max-rows="5"
+                                              required></textarea>
+                                    <div ng-messages="wizardStep8.address.$error"
+                                         role="alert" multiple>
+                                        <div ng-message="required"><span>Address field is required.</span></div>
+                                        <div ng-message="md-maxlength">
+                                            <span>Address can't be longer than 150 characters.</span>
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid || wizardStep3.$invalid || wizardStep4.$invalid || wizardStep5.$invalid || wizardStep6.$invalid || wizardStep7.$invalid || wizardStep8.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep9.$invalid">9</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep9.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep9" ms-form-wizard-form novalidate>
+                                <span class="ms-form-wizard-step-text">Set your password</span>
+                                
+                                <md-input-container class="md-block">
+                                    <input type="password" name="password" ng-model="vm.formWizard.password"
+                                               placeholder="Password"
+                                               required>
+                                        <div ng-messages="wizardStep9.password.$error"
+                                             role="alert">
+                                            <div ng-message="required">
+                                                <span>Password field is required.</span>
+                                            </div>
+                                        </div>
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <input type="password" name="passwordConfirm"
+                                               ng-model="vm.formWizard.passwordConfirm"
+                                               placeholder="Password (Confirm)"
+                                               required>
+                                        <div ng-messages="wizardStep9passwordConfirm.$error"
+                                             role="alert">
+                                            <div ng-message="required">
+                                                <span>Password (Confirm) field is required.</span>
+                                            </div>
+                                        </div>
+                                </md-input-container>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+
+                <div class="navigation" flex layout="row" layout-align="center center">
+                    <md-button class="md-raised md-accent" ng-click="msWizard.previousStep()"
+                               ng-disabled="msWizard.isFirstStep()">
+                        Previous
+                    </md-button>
+                    <div class="steps">
+                        <span ng-repeat="form in msWizard.forms"
+                              ng-class="{'selected md-accent-bg':msWizard.selectedIndex === $index}"></span>
+                    </div>
+                    <md-button class="md-raised md-accent" ng-click="msWizard.nextStep()"
+                               ng-hide="msWizard.isLastStep()"
+                               ng-disabled="msWizard.currentStepInvalid()">
+                        Next
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-click="vm.sendForm(); msWizard.resetForm();"
+                               ng-show="msWizard.isLastStep()"
+                               ng-disabled="msWizard.formsIncomplete()">
+                        Send
+                    </md-button>
+                </div>
+
+            </ms-form-wizard>
+            <!-- / FORM WIZARD -->
+
+        </div>
+    </div>
+    <!-- / CONTENT -->
+</div>
