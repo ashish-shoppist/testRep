@@ -1,7 +1,9 @@
 {
   "name": "fuse",
   "version": "1.4.4",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.14.0"
+  },
   "scripts": {
     "test": "gulp test"
   },
@@ -52,5 +54,17 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashish-shoppist/testRep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashish-shoppist/testRep/issues"
+  },
+  "homepage": "https://github.com/ashish-shoppist/testRep#readme",
+  "description": ""
 }
